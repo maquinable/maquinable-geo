@@ -53,7 +53,7 @@ Create `maquinable-geo.config.md` at the root of your project so the skills don'
 ## Install
 
 ```
-/plugin marketplace add <org>/maquinable-geo
+/plugin marketplace add maquinable/maquinable-geo
 /plugin install maquinable-geo@maquinable
 ```
 
