@@ -1,0 +1,14 @@
+{
+  "name": "maquinable-geo",
+  "displayName": "Maquinable GEO",
+  "version": "0.1.0",
+  "description": "GEO and technical SEO for articles and sites: TL;DR + FAQ + FAQPage schema, a /100 pre-publish quality gate with an anti-AI-tics voice check, a technical SEO/GEO audit (robots.txt for AI crawlers, llms.txt, schema) and SERP-based content briefs. English and Spanish.",
+  "author": {
+    "name": "Maquinable",
+    "email": "hola@maquinable.com",
+    "url": "https://maquinable.com"
+  },
+  "homepage": "https://maquinable.com",
+  "license": "MIT",
+  "keywords": ["seo", "geo", "generative-engine-optimization", "llms-txt", "schema", "faq", "content-brief", "robots-txt"]
+}

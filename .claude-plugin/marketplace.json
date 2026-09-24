@@ -1,0 +1,15 @@
+{
+  "name": "maquinable",
+  "description": "Maquinable plugins for Claude Code.",
+  "owner": {
+    "name": "Maquinable",
+    "email": "hola@maquinable.com"
+  },
+  "plugins": [
+    {
+      "name": "maquinable-geo",
+      "source": "./",
+      "description": "GEO and technical SEO skills for articles and sites. English and Spanish."
+    }
+  ]
+}
