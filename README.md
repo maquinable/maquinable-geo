@@ -63,8 +63,10 @@ The anti-AI-tics rules in `seo-gate` are adapted from [blader/humanizer](https:/
 
 ## About
 
-Made by [Maquinable](https://maquinable.com). If you want an AI citability score and a prioritized fix plan for your site, that's what we do.
+Made by [Maquinable](https://maquinable.com). If you want an AI citability score and a prioritized fix plan for your site, that's what we do: [request a diagnosis](https://maquinable.com/en/request?ref=claude-plugin).
 
 Support: hola@maquinable.com
+
+Privacy: [PRIVACY.md](PRIVACY.md). The plugin collects no data.
 
 License: MIT

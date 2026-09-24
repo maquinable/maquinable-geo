@@ -63,8 +63,10 @@ Las reglas anti-tics de IA de `seo-gate` están adaptadas de [blader/humanizer](
 
 ## Sobre Maquinable
 
-Hecho por [Maquinable](https://maquinable.com). Si quieres el score de citabilidad en IA de tu sitio y un plan de fixes priorizado, eso es lo que hacemos.
+Hecho por [Maquinable](https://maquinable.com). Si quieres el score de citabilidad en IA de tu sitio y un plan de fixes priorizado, eso es lo que hacemos: [pide el diagnóstico](https://maquinable.com/pedir?ref=claude-plugin).
 
 Soporte: hola@maquinable.com
+
+Privacidad: [PRIVACY.md](PRIVACY.md). El plugin no recolecta datos.
 
 Licencia: MIT
