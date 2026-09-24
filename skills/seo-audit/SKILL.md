@@ -28,10 +28,17 @@ import urllib.request
 from xml.etree import ElementTree as ET
 
 NS = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+UA = "Mozilla/5.0 (compatible; maquinable-geo/0.1; +https://github.com/maquinable/maquinable-geo)"
+
+def fetch(url):
+    # Always send a descriptive User-Agent: many sites (e.g. Cloudflare's default
+    # Browser Integrity Check) answer 403 to the generic "Python-urllib" one.
+    req = urllib.request.Request(url, headers={"User-Agent": UA})
+    with urllib.request.urlopen(req, timeout=20) as r:
+        return r.read()
 
 def sitemap_urls(url, depth=0):
-    with urllib.request.urlopen(url, timeout=20) as r:
-        root = ET.fromstring(r.read())
+    root = ET.fromstring(fetch(url))
     if root.tag.endswith("sitemapindex") and depth < 3:
         out = []
         for loc in root.findall("sm:sitemap/sm:loc", NS):
@@ -39,6 +46,8 @@ def sitemap_urls(url, depth=0):
         return out
     return [loc.text.strip() for loc in root.findall("sm:url/sm:loc", NS)]
 ```
+
+If a fetch returns 403 (or a challenge page), don't report the site as blocking crawlers: it's usually the site rejecting your client. Retry with the descriptive User-Agent above, or with Claude's web fetch tool, and only report a block if it persists. Real crawler access is decided by robots.txt (step 3), not by your own fetch.
 
 ## 2. On-page checks
 
@@ -63,7 +72,7 @@ Report the raw HTML result. If the site renders its content with JavaScript and 
 import urllib.request, urllib.robotparser
 
 SITE = "https://example.com"  # the normalized origin
-robots_txt = urllib.request.urlopen(f"{SITE}/robots.txt", timeout=20).read().decode("utf-8", "replace")
+robots_txt = fetch(f"{SITE}/robots.txt").decode("utf-8", "replace")  # fetch() and UA from step 1
 
 bots = [
     "Googlebot", "Bingbot",
@@ -159,5 +168,5 @@ When an issue maps to another skill of this plugin, say so ("`geo-optimize` adds
 
 ## Notes
 
-- Be polite with the site: sequential requests, a descriptive User-Agent, and respect the page limit.
+- Be polite with the site: sequential requests, the descriptive User-Agent from step 1, and respect the page limit.
 - Don't promise rankings or AI citations. This audit checks structure and access, not results.

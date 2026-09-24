@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.1
+
+- `seo-audit`, `seo-gate`: fetch with a descriptive User-Agent. Sites behind Cloudflare's default Browser Integrity Check answer 403 to the generic Python one, which could be misreported as the site blocking crawlers.
+
 ## 0.1.0 (unreleased)
 
 First release.
